@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10-Minute Door – Get through the urge</title>
+<meta name="description" content="Having an urge right now? Press the button. A free, anonymous 10-minute guide to ride it out. No sign-up, no judgement.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚪</text></svg>">
+<style>
+:root{--bg:#f4f6f3;--card:#fff;--ink:#1f2a27;--muted:#62706b;--brand:#2f7d6d;--brand2:#e9f3ef;--line:#dfe6e2;--warn:#b3402a}
+@media (prefers-color-scheme:dark){:root{--bg:#121816;--card:#1b2320;--ink:#e9efec;--muted:#9aaba4;--brand:#5fc0a8;--brand2:#20302b;--line:#2c3834}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 60px}
+nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;font-size:.9rem}
+nav b{font-size:1.05rem}
+nav a{color:var(--muted);text-decoration:none;margin-left:14px;cursor:pointer}
+h1{font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1;margin:10px 0}
+h2{font-size:1.4rem;margin:0 0 8px}
+p.sub{color:var(--muted);margin:0 0 22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;margin-bottom:16px}
+.big{display:block;width:100%;background:var(--brand);color:#fff;border:0;border-radius:22px;padding:26px 18px;font-size:1.3rem;font-weight:800;cursor:pointer;font-family:inherit;box-shadow:0 8px 28px rgba(47,125,109,.3)}
+.btn{background:var(--brand);color:#fff;border:0;border-radius:14px;padding:13px 18px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit}
+.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);border-radius:14px;padding:11px 16px;font-size:.95rem;cursor:pointer;font-family:inherit}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{background:var(--brand2);border:1.5px solid transparent;border-radius:14px;padding:14px;cursor:pointer;font-size:1rem;text-align:left;color:var(--ink);font-family:inherit}
+.opt:hover{border-color:var(--brand)}
+.stat{display:flex;gap:10px;margin-top:18px}
+.stat div{flex:1;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center}
+.stat b{display:block;font-size:1.5rem}
+.stat span{font-size:.8rem;color:var(--muted)}
+.small{font-size:.82rem;color:var(--muted)}
+.steps{display:flex;gap:6px;margin-bottom:16px}
+.steps i{flex:1;height:5px;border-radius:9px;background:var(--line)}
+.steps i.on{background:var(--brand)}
+.timer{font-size:.9rem;color:var(--muted);text-align:right;margin-bottom:6px}
+.wave{width:180px;height:180px;margin:20px auto;border-radius:50%;background:radial-gradient(circle,var(--brand) 0%,var(--brand2) 70%);transform:scale(.6);transition:transform 4s ease-in-out}
+.wave.in{transform:scale(1)}
+.breath{text-align:center;font-size:1.3rem;font-weight:700;min-height:2em}
+.swap{background:var(--brand2);border-radius:14px;padding:14px;margin-top:10px}
+.chat{max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.m{padding:10px 13px;border-radius:14px;max-width:85%;white-space:pre-wrap}
+.m.a{background:var(--brand2);align-self:flex-start}
+.m.u{background:var(--brand);color:#fff;align-self:flex-end}
+.inp{display:flex;gap:8px}
+.inp input{flex:1;border:1.5px solid var(--line);border-radius:12px;padding:12px;font:inherit;background:var(--bg);color:var(--ink)}
+textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px;font:inherit;background:var(--bg);color:var(--ink);min-height:70px}
+.hide{display:none}
+.help a{color:var(--brand)}
+footer{margin-top:30px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><b>🚪 10-Minute Door</b><span><a data-go="home">Home</a><a data-go="reset">I slipped</a><a data-go="help">Get help</a></span></nav>
+
+<!-- HOME -->
+<section id="home">
+  <h1>Urge hitting right now?</h1>
+  <p class="sub">Give it 10 minutes. Urges rise and fall like a wave. Let's ride this one out together. Free, anonymous, no sign-up.</p>
+  <button class="big" data-go="s1">🚪 I'm having an urge right now</button>
+  <div class="stat">
+    <div><b id="stPass">0</b><span>urges you got through</span></div>
+    <div><b id="stGood">0</b><span>good days (last 30)</span></div>
+  </div>
+  <p class="small" style="margin-top:14px">🔒 Your progress is saved only on this device. Nothing you type is stored by us. Tip: bookmark this page or add it to your home screen for your hardest moments.</p>
+  <div class="row"><button class="ghost" id="goodDay">✅ Mark today as a good day</button></div>
+</section>
+
+<!-- STEP 1: NAME IT -->
+<section id="s1" class="hide card">
+  <div class="steps"><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="timer" id="clock1"></div>
+  <h2>1. Name it</h2>
+  <p class="sub">Urges usually hide another feeling. What's really going on right now?</p>
+  <div class="grid" id="feelings"></div>
+</section>
+
+<!-- STEP 2: SURF IT -->
+<section id="s2" class="hide card">
+  <div class="steps"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+  <h2>2. Ride the wave</h2>
+  <p class="sub">Breathe with the circle for 90 seconds. Notice the urge. You don't have to act on it. Watch it rise, peak, and fall.</p>
+  <div class="wave" id="wave"></div>
+  <div class="breath" id="breath">Get ready…</div>
+  <p class="small" style="text-align:center" id="surfLeft"></p>
+  <div class="row"><button class="ghost" id="skipSurf">Skip →</button></div>
+</section>
+
+<!-- STEP 3: SWAP IT -->
+<section id="s3" class="hide card">
+  <div class="steps"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+  <h2>3. Swap it</h2>
+  <p class="sub">Do one small thing right now. Moving your body or changing rooms breaks the loop.</p>
+  <div id="swaps"></div>
+  <div class="row"><button class="btn" data-go="s4">I did one →</button><button class="ghost" id="openChat">💬 Talk to the coach</button></div>
+</section>
+
+<!-- CHAT -->
+<section id="chatBox" class="hide card">
+  <h2>💬 Talk it out</h2>
+  <p class="small">A calm AI coach. Not a human or a therapist. Don't share personal details like your name.</p>
+  <div class="chat" id="chat"></div>
+  <div class="inp"><input id="chatIn" maxlength="800" placeholder="Type how you feel…"><button class="btn" id="send">Send</button></div>
+  <div class="row"><button class="ghost" data-go="s4">I'm ready to finish →</button></div>
+</section>
+
+<!-- STEP 4: CHECK -->
+<section id="s4" class="hide card">
+  <div class="steps"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <h2>4. How's the urge now?</h2>
+  <div class="grid">
+    <button class="opt" id="passed">🌊 It passed / it's weaker</button>
+    <button class="opt" id="still">😣 Still strong</button>
+  </div>
+</section>
+
+<!-- WIN -->
+<section id="win" class="hide card">
+  <h1>You did it. 🎉</h1>
+  <p class="sub">You just proved the urge doesn't control you. Every time you ride one out, the next one gets a little weaker.</p>
+  <p><b>Total urges you've got through: <span id="winCount">0</span></b></p>
+  <label class="small">Optional: write one line to your future self for the next tough moment</label>
+  <textarea id="note" maxlength="300" placeholder="e.g. Remember how good it felt to win this one."></textarea>
+  <div class="row"><button class="btn" id="saveNote">Save & go home</button></div>
+</section>
+
+<!-- STILL STRONG -->
+<section id="strong" class="hide card">
+  <h2>That's okay. Let's go again.</h2>
+  <p class="sub">Strong urges sometimes come in a few waves. Change your environment first:</p>
+  <div class="swap">📱 Put your phone in another room, or go somewhere with other people.</div>
+  <div class="swap">🚿 Take a shower or splash water on your face.</div>
+  <div class="swap">🚶 Go outside for 5 minutes, even just your doorstep.</div>
+  <div id="futureNote"></div>
+  <div class="row"><button class="btn" data-go="s2">Ride another wave</button><button class="ghost" id="openChat2">💬 Talk to the coach</button></div>
+</section>
+
+<!-- RESET (relapse) -->
+<section id="reset" class="hide">
+  <h1>You slipped. You're not back at zero.</h1>
+  <p class="sub">One slip doesn't erase your progress. Shame makes urges stronger. Learning makes them weaker. Let's learn from it in 3 quick questions.</p>
+  <div class="card">
+    <p><b>Your progress is still real:</b> <span id="rGood">0</span> good days in the last 30, and <span id="rPass">0</span> urges you got through.</p>
+    <label class="small">1. What was happening just before? (time, place, mood)</label>
+    <textarea id="q1" maxlength="300"></textarea>
+    <label class="small">2. What was the first moment you could have stopped?</label>
+    <textarea id="q2" maxlength="300"></textarea>
+    <label class="small">3. What's one thing you'll do differently next time?</label>
+    <textarea id="q3" maxlength="300"></textarea>
+    <div class="row"><button class="btn" id="saveReset">Save & keep going</button></div>
+    <p class="small">Saved only on this device.</p>
+  </div>
+  <div class="card" id="pastLessons"></div>
+</section>
+
+<!-- HELP -->
+<section id="help" class="hide help">
+  <h1>Get more support</h1>
+  <p class="sub">This site is a tool for tough moments, not a treatment. If you're struggling often, talking to someone can make a big difference.</p>
+  <div class="card">
+    <h2>🆘 In crisis or thinking about harming yourself?</h2>
+    <p>Please contact your local emergency number now, or find a free crisis line in your country at <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a>.</p>
+  </div>
+  <div class="card">
+    <h2>🧑‍⚕️ Talk to a professional</h2>
+    <p>Look for a therapist or counsellor experienced with compulsive sexual behaviour or habits. Your doctor can refer you. Online therapy is also an option.</p>
+  </div>
+  <div class="card">
+    <h2>🛡️ Make it harder to slip</h2>
+    <p>Turn on content filters in your phone settings (Screen Time on iPhone, Digital Wellbeing on Android) and keep your phone out of the bedroom at night.</p>
+  </div>
+</section>
+
+<footer>For adults 18+. Not medical advice. Your data stays on your device.<br>
+<a href="https://ko-fi.com/" target="_blank" rel="noopener" id="donate">☕ This site is free. Support it</a></footer>
+</div>
+
+<script>
+// ---------- storage (only on this device) ----------
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const today=()=>new Date().toISOString().slice(0,10);
+function goodDays(){const days=store.get("good",[]);const cut=Date.now()-30*864e5;return days.filter(d=>new Date(d).getTime()>=cut).length}
+function refresh(){const p=store.get("passed",0),g=goodDays();
+  ["stPass","rPass","winCount"].forEach(id=>document.getElementById(id).textContent=p);
+  ["stGood","rGood"].forEach(id=>document.getElementById(id).textContent=g);}
+function addGood(){const days=store.get("good",[]);if(!days.includes(today())){days.push(today());store.set("good",days.slice(-60))}}
+
+// ---------- navigation ----------
+const pages=["home","s1","s2","s3","chatBox","s4","win","strong","reset","help"];
+function show(id){pages.forEach(p=>document.getElementById(p).classList.toggle("hide",p!==id));window.scrollTo(0,0);
+  if(id==="s1")startClock();if(id==="s2")surf();if(id==="reset")lessons();refresh();}
+document.addEventListener("click",e=>{const g=e.target.closest("[data-go]");if(g){e.preventDefault();show(g.dataset.go)}});
+
+// ---------- 10 minute clock ----------
+let started=null,clockT;
+function startClock(){started=Date.now();clearInterval(clockT);clockT=setInterval(()=>{const left=Math.max(0,600-Math.floor((Date.now()-started)/1000));
+  document.getElementById("clock1").textContent="⏱️ "+Math.floor(left/60)+":"+String(left%60).padStart(2,"0")+" left in your 10 minutes";},1000)}
+
+// ---------- step 1 feelings ----------
+const SWAPS={
+  "😐 Bored":["Do 15 push-ups or squats right now","Go to a different room and make tea","Open a game, puzzle or a funny video channel"],
+  "😔 Lonely":["Text or call one friend: just say 'hey, what's up?'","Go somewhere with people (café, shop, park)","Talk to the coach here for a few minutes"],
+  "😫 Stressed":["Walk outside for 5 minutes","Write down the one thing stressing you","Splash cold water on your face"],
+  "😴 Tired / can't sleep":["Put your phone in another room and lie down","Play a sleep story or calm music","Read a few pages of a paper book"],
+  "😢 Sad / down":["Message someone you trust","Step outside for fresh air","Write 3 lines about how you feel"],
+  "🤷 Just habit":["Leave the room you're in right now","Drink a full glass of water","Put on music and tidy one small thing"]};
+let feeling="";
+const fbox=document.getElementById("feelings");
+Object.keys(SWAPS).forEach(f=>{const b=document.createElement("button");b.className="opt";b.textContent=f;
+  b.onclick=()=>{feeling=f;document.getElementById("swaps").innerHTML=SWAPS[f].map(s=>'<div class="swap">👉 '+s+'</div>').join("");show("s2")};fbox.appendChild(b)});
+
+// ---------- step 2 breathing wave ----------
+let surfT;
+function surf(){clearInterval(surfT);let t=90,phase=0;const w=document.getElementById("wave"),b=document.getElementById("breath"),l=document.getElementById("surfLeft");
+  const tick=()=>{if(phase%8===0){w.classList.add("in");b.textContent="Breathe in…"}if(phase%8===4){w.classList.remove("in");b.textContent="Breathe out…"}
+    l.textContent=t+" seconds";phase++;t--;if(t<0){clearInterval(surfT);b.textContent="Nice. The wave is passing.";setTimeout(()=>show("s3"),1500)}};
+  tick();surfT=setInterval(tick,1000);}
+document.getElementById("skipSurf").onclick=()=>{clearInterval(surfT);show("s3")};
+
+// ---------- chat ----------
+let msgs=[];
+function openChat(){show("chatBox");if(!msgs.length){msgs.push({role:"assistant",content:"Hey, I'm here. No judgement. What's going on right now?"});draw()}}
+document.getElementById("openChat").onclick=openChat;document.getElementById("openChat2").onclick=openChat;
+function draw(){const c=document.getElementById("chat");c.innerHTML="";msgs.forEach(m=>{const d=document.createElement("div");d.className="m "+(m.role==="user"?"u":"a");d.textContent=m.content;c.appendChild(d)});c.scrollTop=c.scrollHeight}
+async function send(){const i=document.getElementById("chatIn"),txt=i.value.trim();if(!txt)return;i.value="";msgs.push({role:"user",content:txt});draw();
+  const btn=document.getElementById("send");btn.disabled=true;btn.textContent="…";
+  try{const r=await fetch("/api/coach",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:msgs,feeling})});
+    const d=await r.json();msgs.push({role:"assistant",content:r.ok?d.reply:(d.error||"Something went wrong.")});}
+  catch(e){msgs.push({role:"assistant",content:"I couldn't connect. Try the breathing wave again while I reconnect."})}
+  draw();btn.disabled=false;btn.textContent="Send";}
+document.getElementById("send").onclick=send;
+document.getElementById("chatIn").addEventListener("keydown",e=>{if(e.key==="Enter")send()});
+
+// ---------- step 4 ----------
+document.getElementById("passed").onclick=()=>{store.set("passed",store.get("passed",0)+1);addGood();show("win")};
+document.getElementById("still").onclick=()=>{const n=store.get("notes",[]);document.getElementById("futureNote").innerHTML=n.length?'<div class="swap">💌 <b>A note from you:</b> "'+n[n.length-1].replace(/</g,"&lt;")+'"</div>':"";show("strong")};
+document.getElementById("saveNote").onclick=()=>{const v=document.getElementById("note").value.trim();if(v){const n=store.get("notes",[]);n.push(v);store.set("notes",n.slice(-20))}document.getElementById("note").value="";show("home")};
+document.getElementById("goodDay").onclick=e=>{addGood();refresh();e.target.textContent="✅ Saved. Well done today!"};
+
+// ---------- reset ----------
+document.getElementById("saveReset").onclick=()=>{const l=store.get("lessons",[]);const v=["q1","q2","q3"].map(id=>document.getElementById(id).value.trim());
+  if(v.some(x=>x)){l.push({d:today(),v});store.set("lessons",l.slice(-30))}["q1","q2","q3"].forEach(id=>document.getElementById(id).value="");show("home")};
+function lessons(){const l=store.get("lessons",[]),box=document.getElementById("pastLessons");
+  if(!l.length){box.innerHTML='<p class="small">Your lessons will appear here. Over time you\'ll spot your patterns.</p>';return}
+  box.innerHTML="<h2>What you've learned</h2>"+l.slice(-5).reverse().map(x=>'<p class="small"><b>'+x.d+':</b> next time → '+(x.v[2]||"…").replace(/</g,"&lt;")+"</p>").join("");}
+
+refresh();
+</script>
+</body>
+</html>
